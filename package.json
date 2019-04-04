@@ -1,0 +1,63 @@
+{
+  "name": "@vrbo/pino-rotating-file",
+  "version": "1.0.0",
+  "description": "A hapi-pino log transport for splitting logs into separate, automatically rotating files.",
+  "main": "lib/index.js",
+  "author": {
+    "name": "Expedia Group",
+    "email": "oss@expediagroup.com"
+  },
+  "contributors": [
+    "tlivingston",
+    "tuckbick",
+    "mcjfunk",
+    "holmok",
+    "skphi13",
+    "joonastanner"
+  ],
+  "bin": {
+    "rotate-logs": "./lib/index.js"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run nyc",
+    "lint": "standard ./lib",
+    "tape": "tape ./tests/**/*.test.js | tap-spec",
+    "nyc": "nyc --reporter=text --reporter=text-summary --reporter=html npm run tape",
+    "postnyc": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/homeaway/pino-rotating-file"
+  },
+  "keywords": [
+    "pino",
+    "hapi-pino",
+    "hapi",
+    "hapi.js",
+    "rotating",
+    "log",
+    "logging",
+    "pino",
+    "hapi",
+    "node.js"
+  ],
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "mock-require": "^3.0.3",
+    "mock-stdin": "^0.3.1",
+    "nyc": "^13.3.0",
+    "sinon": "^7.2.3",
+    "standard": "^12.0.1",
+    "std-mocks": "^1.0.1",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.2"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "minimist": "^1.2.0",
+    "pump": "^3.0.0",
+    "rotating-file-stream": "^1.4.0",
+    "split2": "^3.1.0",
+    "through2": "^3.0.0"
+  }
+}
