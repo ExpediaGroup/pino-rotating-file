@@ -1,4 +1,4 @@
-# pino-rotating-file
+# @vrbo/pino-rotating-file
 
 *   [Introduction](#introduction)
 *   [Usage](#usage)

@@ -29,6 +29,13 @@
     "type": "git",
     "url": "https://github.com/homeaway/pino-rotating-file"
   },
+  "bugs": {
+    "url": "https://github.com/homeaway/pino-rotating-file/issues"
+  },
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
+  },
   "keywords": [
     "pino",
     "hapi-pino",
