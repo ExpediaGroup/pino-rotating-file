@@ -32,6 +32,7 @@ coverage
 lib-cov
 html-report
 xunit.xml
+examples
 
 .project
 .idea
@@ -40,6 +41,7 @@ xunit.xml
 *.sublime-workspace
 *.sublime-project
 .editorconfig
+.github
 
 ehthumbs.db
 Icon?
@@ -51,3 +53,5 @@ Thumbs.db
 tools
 Makefile
 Todo.md
+.travis.yml
+.nyc_output
