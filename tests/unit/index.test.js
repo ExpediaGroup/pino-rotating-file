@@ -124,10 +124,10 @@ Tape('start with true filter with write to file with non-JSON', (t) => {
     t.equals(stdout.length, 0, 'zero lines')
 
     t.true(writeStub.calledOnce, 'Write stub called')
-    const arg = JSON.parse(writeStub.getCall(0).args[0]);
+    const arg = JSON.parse(writeStub.getCall(0).args[0])
     t.equals(arg.data, 'msg', 'write stub called with json')
     t.equals(arg.level, 30, 'write stub called with json at level 30')
-    t.equals(arg.tags[0], 'info', 'write stub called with json with tags set to info');
+    t.equals(arg.tags[0], 'info', 'write stub called with json with tags set to info')
     t.true(arg.wasRaw, 'wasRaw was set to true')
     t.true(endStub.calledOnce, 'end called')
   })
