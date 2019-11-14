@@ -64,6 +64,25 @@ Tape('start with false filter with output to stdout', (t) => {
   })
 })
 
+Tape('start with false filter with output to stdout with non-JSON', (t) => {
+  beforeEach()
+  t.plan(2)
+  const stdin = StdInMock.stdin()
+  StdOutMock.use({ stdout: true, stderr: true })
+  const { start } = require(requirePath)
+  const config = { filter () { return false }, output: { path: 'test.log', options: {}, notjson: true }, exit: false }
+  start(config)
+  stdin.send(Buffer.from('{}', 'utf8'))
+  stdin.send(null)
+  setImmediate(() => {
+    StdOutMock.restore()
+    stdin.restore()
+    const { stdout } = StdOutMock.flush()
+    t.equals(stdout.length, 1, 'one line')
+    t.equals(stdout[0].trim(), '{}', 'got sent data')
+  })
+})
+
 Tape('start with true filter with write to file', (t) => {
   beforeEach()
   t.plan(3)
