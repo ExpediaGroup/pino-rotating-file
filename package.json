@@ -54,7 +54,7 @@
   "devDependencies": {
     "mock-require": "^3.0.3",
     "mock-stdin": "^0.3.1",
-    "nyc": "^13.3.0",
+    "nyc": "^14.0.0",
     "sinon": "^7.2.3",
     "standard": "^12.0.1",
     "std-mocks": "^1.0.1",
