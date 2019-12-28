@@ -70,10 +70,13 @@ Tape('start with true filter with write to file', (t) => {
 
   const writeStub = Sinon.stub()
   const endStub = Sinon.stub()
-  function rfs () {
-    this.write = writeStub
-    this.end = endStub
+  const rfs = {
+    createStream: () => ({
+      write: writeStub,
+      end: endStub
+    })
   }
+
   Mock('rotating-file-stream', rfs)
 
   const stdin = StdInMock.stdin()
@@ -102,10 +105,13 @@ Tape('start with true filter with write to file with non-JSON', (t) => {
 
   const writeStub = Sinon.stub()
   const endStub = Sinon.stub()
-  function rfs () {
-    this.write = writeStub
-    this.end = endStub
+  const rfs = {
+    createStream: () => ({
+      write: writeStub,
+      end: endStub
+    })
   }
+
   Mock('rotating-file-stream', rfs)
 
   const stdin = StdInMock.stdin()
@@ -139,10 +145,13 @@ Tape('start with true filter with write to file (no output options)', (t) => {
 
   const writeStub = Sinon.stub()
   const endStub = Sinon.stub()
-  function rfs () {
-    this.write = writeStub
-    this.end = endStub
+  const rfs = {
+    createStream: () => ({
+      write: writeStub,
+      end: endStub
+    })
   }
+
   Mock('rotating-file-stream', rfs)
 
   const stdin = StdInMock.stdin()
