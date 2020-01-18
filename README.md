@@ -42,7 +42,7 @@ module.exports = {
       path: "logs/", // path to write files to
       size: "10M", // max file size
       rotate: 5, // keep 5 rotated logs
-      isJson: true // console logs will be in json format if set true else string.
+      isJson: false // JSON formatting will be disabled
     }
   }
 }
