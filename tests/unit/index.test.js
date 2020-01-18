@@ -89,9 +89,11 @@ Tape('start with true filter with write to file with is Json set true', (t) => {
 
   const writeStub = Sinon.stub()
   const endStub = Sinon.stub()
-  function rfs () {
-    this.write = writeStub
-    this.end = endStub
+  const rfs = {
+    createStream: () => ({
+      write: writeStub,
+      end: endStub
+    })
   }
   Mock('rotating-file-stream', rfs)
 
