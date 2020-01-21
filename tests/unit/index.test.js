@@ -64,6 +64,64 @@ Tape('start with false filter with output to stdout', (t) => {
   })
 })
 
+Tape('start with false filter with output to stdout with is JSON set false', (t) => {
+  beforeEach()
+  t.plan(2)
+  const stdin = StdInMock.stdin()
+  StdOutMock.use({ stdout: true, stderr: true })
+  const { start } = require(requirePath)
+  const config = { filter () { return false }, output: { path: 'test.log', options: {}, isJson: false }, exit: false }
+  start(config)
+  stdin.send(Buffer.from('msg', 'utf8'))
+  stdin.send(null)
+  setImmediate(() => {
+    StdOutMock.restore()
+    stdin.restore()
+    const { stdout } = StdOutMock.flush()
+    t.equals(stdout.length, 1, 'one line')
+    t.equals(stdout[0].trim(), 'msg', 'got sent data')
+  })
+})
+
+Tape('start with true filter with write to file with is Json set true', (t) => {
+  beforeEach()
+  t.plan(7)
+
+  const writeStub = Sinon.stub()
+  const endStub = Sinon.stub()
+  const rfs = {
+    createStream: () => ({
+      write: writeStub,
+      end: endStub
+    })
+  }
+  Mock('rotating-file-stream', rfs)
+
+  const stdin = StdInMock.stdin()
+  StdOutMock.use({ stdout: true, stderr: true, print: true })
+
+  const config = { filter () { return true }, output: { path: 'test.log', options: {}, isJson: true }, exit: false }
+  const { start } = require(requirePath)
+  start(config)
+
+  stdin.send(Buffer.from('msg', 'utf8'))
+  stdin.send(null)
+  setImmediate(() => {
+    StdOutMock.restore()
+    stdin.restore()
+    const { stdout } = StdOutMock.flush()
+    t.equals(stdout.length, 0, 'zero lines')
+
+    t.true(writeStub.calledOnce, 'Write stub called')
+    const arg = JSON.parse(writeStub.getCall(0).args[0])
+    t.equals(arg.data, 'msg', 'write stub called with json')
+    t.equals(arg.level, 30, 'write stub called with json at level 30')
+    t.equals(arg.tags[0], 'info', 'write stub called with json with tags set to info')
+    t.true(arg.wasRaw, 'wasRaw was set to true')
+    t.true(endStub.calledOnce, 'end called')
+  })
+})
+
 Tape('start with true filter with write to file', (t) => {
   beforeEach()
   t.plan(3)
