@@ -41,8 +41,7 @@ module.exports = {
     options: {
       path: "logs/", // path to write files to
       size: "10M", // max file size
-      rotate: 5, // keep 5 rotated logs
-      isJson: false // JSON formatting will be disabled
+      rotate: 5 // keep 5 rotated logs
     }
   }
 }
@@ -66,6 +65,23 @@ You can chain all these together to split your logs into separate, automatically
 Where `.request-log.js` pulls all the logs that have `req` tags, `.error-log.js` pulls all the logs with `error` tags, and `.server-log.js` puts all the rest into another file.
 
 > NOTE: if the config provided does not exist or fails to load, then all logs will be passed to stdout.
+
+### File rotation _only_
+
+To disable formatting logs into JSON and take advantage of file rotation only, simply add `isJson: false` to the config file options:
+
+```javascript
+module.exports = {
+  filter(data) {return !!data.req},
+  output: {
+    path: "request.log",
+    options: {
+      ...
+      isJson: false // JSON formatting will be disabled
+    }
+  }
+}
+```
 
 ## Further Reading
 
