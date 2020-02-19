@@ -55,7 +55,7 @@
     "mock-require": "^3.0.3",
     "mock-stdin": "^1.0.0",
     "nyc": "^15.0.0",
-    "sinon": "^8.0.0",
+    "sinon": "^9.0.0",
     "standard": "^14.0.0",
     "std-mocks": "^1.0.1",
     "tap-spec": "^5.0.0",
