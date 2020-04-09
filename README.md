@@ -1,6 +1,6 @@
 # @vrbo/pino-rotating-file
 [![NPM Version](https://img.shields.io/npm/v/@vrbo/pino-rotating-file.svg?style=flat-square)](https://www.npmjs.com/package/@vrbo/pino-rotating-file)
-[![Build Status](https://travis-ci.org/expediagroup/pino-rotating-file.svg?branch=master)](https://travis-ci.org/expediagroup/pino-rotating-file)
+![](https://github.com/ExpediaGroup/pino-rotating-file/workflows/Node_CI/badge.svg)
 [![Dependency Status](https://david-dm.org/expediagroup/pino-rotating-file.svg?theme=shields.io)](https://david-dm.org/expediagroup/pino-rotating-file)
 [![NPM Downloads](https://img.shields.io/npm/dm/@vrbo/pino-rotating-file.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@vrbo/pino-rotating-file)
 
