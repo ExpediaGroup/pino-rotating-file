@@ -59,7 +59,7 @@
     "standard": "^14.0.0",
     "std-mocks": "^1.0.1",
     "tap-spec": "^5.0.0",
-    "tape": "^4.9.2"
+    "tape": "^5.0.0"
   },
   "dependencies": {
     "debug": "^4.1.1",
