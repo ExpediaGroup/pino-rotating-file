@@ -77,6 +77,8 @@ module.exports = {
     path: "request.log",
     isJson: false // JSON formatting will be disabled,
     options: {
+      // Options configured here are passed along to rotating-file-stream.
+      // See the Introduction of this README for a link to valid options.
       ... 
     }
   }
