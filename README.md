@@ -68,16 +68,18 @@ Where `.request-log.js` pulls all the logs that have `req` tags, `.error-log.js`
 
 ### File rotation _only_
 
-To disable formatting logs into JSON and take advantage of file rotation only, simply add `isJson: false` to the config file options:
+To disable formatting logs into JSON and take advantage of file rotation only, simply add `isJson: false` to the `output` object in your configuration file:
 
 ```javascript
 module.exports = {
   filter(data) {return !!data.req},
   output: {
     path: "request.log",
+    isJson: false // JSON formatting will be disabled,
     options: {
-      ...
-      isJson: false // JSON formatting will be disabled
+      // Options configured here are passed along to rotating-file-stream.
+      // See the Introduction of this README for a link to valid options.
+      ... 
     }
   }
 }
