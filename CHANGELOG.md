@@ -1,5 +1,10 @@
-## [1.1.1](https://github.com/expediagroup/pino-rotating-file/compare/v1.1.0...v1.1.1) (2020-07-28)
+### 2.0.0(https://github.com/expediagroup/pino-rotating-file/compare/v1.1.1...v2.0.0) (2020-08-10)
 
+- [Breaking] Drop support for node < 12.
+- Update Github test workflow to only test againt node v 12.x
+- Update dependencies, npm, and engines in package.json to support node version >= 12.
+
+## [1.1.1](https://github.com/expediagroup/pino-rotating-file/compare/v1.1.0...v1.1.1) (2020-07-28)
 
 ### Bug Fixes
 
