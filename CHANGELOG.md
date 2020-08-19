@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/expediagroup/pino-rotating-file/compare/v2.0.1...v2.0.2) (2020-08-19)
+
+
+### Bug Fixes
+
+* **release workflow:** Update release.yml ([#24](https://github.com/expediagroup/pino-rotating-file/issues/24)) ([1951803](https://github.com/expediagroup/pino-rotating-file/commit/1951803758ec06624e7f1125230c7588c49e31e6))
+
 ## [2.0.1](https://github.com/expediagroup/pino-rotating-file/compare/v2.0.0...v2.0.1) (2020-08-19)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@vrbo/pino-rotating-file",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A hapi-pino log transport for splitting logs into separate, automatically rotating files.",
   "main": "lib/index.js",
   "author": {
