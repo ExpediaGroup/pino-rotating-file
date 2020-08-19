@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/expediagroup/pino-rotating-file/compare/v2.0.0...v2.0.1) (2020-08-19)
+
+
+### Bug Fixes
+
+* **release workflow:** Update release.yml ([#23](https://github.com/expediagroup/pino-rotating-file/issues/23)) ([326635b](https://github.com/expediagroup/pino-rotating-file/commit/326635b00615e2740563fc015949e9d604389dd4))
+
 ### 2.0.0(https://github.com/expediagroup/pino-rotating-file/compare/v1.1.1...v2.0.0) (2020-08-10)
 
 - [Breaking] Drop support for node < 12.
