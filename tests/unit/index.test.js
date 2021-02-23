@@ -197,6 +197,85 @@ Tape('start with true filter with write to file with non-JSON', (t) => {
   })
 })
 
+Tape('start with true filter with write to file with non-JSON with isJson=false and isRawOutput=true', (t) => {
+  beforeEach()
+  t.plan(4)
+
+  const writeStub = Sinon.stub()
+  const endStub = Sinon.stub()
+  const rfs = {
+    createStream: () => ({
+      write: writeStub,
+      end: endStub
+    })
+  }
+
+  Mock('rotating-file-stream', rfs)
+
+  const stdin = StdInMock.stdin()
+  StdOutMock.use({ stdout: true, stderr: true, print: true })
+
+  const config = { filter () { return true }, output: { isJson: false, isRawOutput: true, path: 'test.log', options: {} }, exit: false }
+  const { start } = require(requirePath)
+  start(config)
+
+  stdin.send(Buffer.from('msg', 'utf8'))
+  stdin.send(null)
+  setImmediate(() => {
+    StdOutMock.restore()
+    stdin.restore()
+    const { stdout } = StdOutMock.flush()
+    t.equals(stdout.length, 0, 'zero lines')
+
+    t.true(writeStub.calledOnce, 'Write stub called')
+    const arg = writeStub.getCall(0).args[0]
+    t.equals(arg, 'msg\n', 'write stub called with string')
+    t.true(endStub.calledOnce, 'end called')
+  })
+})
+
+Tape('start with true filter with write to file with non-JSON with isJson=true and isRawOutput=true', (t) => {
+  beforeEach()
+  t.plan(8)
+
+  const writeStub = Sinon.stub()
+  const endStub = Sinon.stub()
+  const rfs = {
+    createStream: () => ({
+      write: writeStub,
+      end: endStub
+    })
+  }
+
+  Mock('rotating-file-stream', rfs)
+
+  const stdin = StdInMock.stdin()
+  StdOutMock.use({ stdout: true, stderr: true, print: true })
+
+  const config = { filter () { return true }, output: { isJson: true, isRawOutput: true, path: 'test.log', options: {} }, exit: false }
+  const { start } = require(requirePath)
+  start(config)
+
+  stdin.send(Buffer.from('msg', 'utf8'))
+  stdin.send(null)
+  setImmediate(() => {
+    StdOutMock.restore()
+    stdin.restore()
+    const { stderr } = StdOutMock.flush()
+    t.equals(stderr.length, 1, '1 line to stderr')
+    console.log(stderr)
+    t.equals(stderr[0], 'Writing raw output with option "isRawOutput", when "isJson" is "true", would write "[object Object]" to file. (treating as JSON)')
+
+    t.true(writeStub.calledOnce, 'Write stub called')
+    const arg = JSON.parse(writeStub.getCall(0).args[0])
+    t.equals(arg.data, 'msg', 'write stub called with json')
+    t.equals(arg.level, 30, 'write stub called with json at level 30')
+    t.equals(arg.tags[0], 'info', 'write stub called with json with tags set to info')
+    t.true(arg.wasRaw, 'wasRaw was set to true')
+    t.true(endStub.calledOnce, 'end called')
+  })
+})
+
 Tape('start with true filter with write to file (no output options)', (t) => {
   beforeEach()
   t.plan(3)

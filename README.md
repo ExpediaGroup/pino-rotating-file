@@ -84,6 +84,38 @@ module.exports = {
   }
 }
 ```
+Additionally, if `isJson === false` and your logs are getting wrapped in quotes, like if you are using `pino-pretty` and your logs look like this:
+```
+"[2021-02-23 22:10:29.888 +0000] INFO (myLabel): my log {"
+"    req: {"
+"        url: '/'"
+"    }"
+"[2021-02-23 22:10:29.999 +0000] ERROR (myLabel): TypeError: my error log"
+"    at line 42"
+...
+```
+You can optionally add `isRawOutput: true` to pass the raw value directly to the output stream, so your output doesn't get stringified on the way:
+```javascript
+module.exports = {
+  filter(data) {return !!data.req},
+  output: {
+    path: "request.log",
+    isJson: false // JSON formatting will be disabled,
+    isRawOutput: true // Raw data passed to output stream,
+    options: { ... }
+  }
+}
+```
+This outputs:
+```
+[2021-02-23 22:10:29.888 +0000] INFO (myLabel): my log {
+    req: {
+        url: '/'
+    }
+[2021-02-23 22:10:29.999 +0000] ERROR (myLabel): TypeError: my error log
+    at line 42
+...
+``` 
 
 ## Further Reading
 
