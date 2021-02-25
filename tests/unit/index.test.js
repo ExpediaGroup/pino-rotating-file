@@ -197,6 +197,43 @@ Tape('start with true filter with write to file with non-JSON', (t) => {
   })
 })
 
+Tape('start with true filter with write to file with non-JSON with isJson=false', (t) => {
+  beforeEach()
+  t.plan(4)
+
+  const writeStub = Sinon.stub()
+  const endStub = Sinon.stub()
+  const rfs = {
+    createStream: () => ({
+      write: writeStub,
+      end: endStub
+    })
+  }
+
+  Mock('rotating-file-stream', rfs)
+
+  const stdin = StdInMock.stdin()
+  StdOutMock.use({ stdout: true, stderr: true, print: true })
+
+  const config = { filter () { return true }, output: { isJson: false, path: 'test.log', options: {} }, exit: false }
+  const { start } = require(requirePath)
+  start(config)
+
+  stdin.send(Buffer.from('msg', 'utf8'))
+  stdin.send(null)
+  setImmediate(() => {
+    StdOutMock.restore()
+    stdin.restore()
+    const { stdout } = StdOutMock.flush()
+    t.equals(stdout.length, 0, 'zero lines')
+
+    t.true(writeStub.calledOnce, 'Write stub called')
+    const arg = writeStub.getCall(0).args[0]
+    t.equals(arg, 'msg\n', 'write stub called with string')
+    t.true(endStub.calledOnce, 'end called')
+  })
+})
+
 Tape('start with true filter with write to file (no output options)', (t) => {
   beforeEach()
   t.plan(3)
