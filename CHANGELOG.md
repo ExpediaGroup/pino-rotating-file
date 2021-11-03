@@ -1,3 +1,9 @@
+### [4.0.0] Breaking change
+
+- [Breaking] Drop support for node < 12.
+- Update Github test workflow to only test againt node v 14.x
+- Update dependencies, npm, and engines in package.json to support node version >= 14.
+
 ### [3.0.0](https://github.com/expediagroup/pino-rotating-file/compare/v2.0.2...v3.0.0) (2021-02-25)
 
 - [Breaking] Enable raw output for file-rotation-only cases. ([#28](https://github.com/ExpediaGroup/pino-rotating-file/pull/28)) ([15a1e1b](https://github.com/ExpediaGroup/pino-rotating-file/commit/2dbf9f0847d1a14de876dec2d64d4a7e115a1e1b))
