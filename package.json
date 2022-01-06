@@ -2,40 +2,6 @@
   "name": "@vrbo/pino-rotating-file",
   "version": "4.0.0",
   "description": "A hapi-pino log transport for splitting logs into separate, automatically rotating files.",
-  "main": "lib/index.js",
-  "author": {
-    "name": "Expedia Group",
-    "email": "oss@expediagroup.com"
-  },
-  "contributors": [
-    "tlivingston",
-    "tuckbick",
-    "mcjfunk",
-    "holmok",
-    "skphi13",
-    "joonastanner"
-  ],
-  "bin": {
-    "rotate-logs": "./lib/index.js"
-  },
-  "scripts": {
-    "test": "npm run lint && npm run nyc",
-    "lint": "standard",
-    "tape": "tape ./tests/**/*.test.js | tap-spec",
-    "nyc": "nyc --reporter=text --reporter=text-summary --reporter=html npm run tape",
-    "postnyc": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/expediagroup/pino-rotating-file"
-  },
-  "bugs": {
-    "url": "https://github.com/expediagroup/pino-rotating-file/issues"
-  },
-  "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
-  },
   "keywords": [
     "pino",
     "hapi-pino",
@@ -50,7 +16,43 @@
     "expedia",
     "expediagroup"
   ],
+  "bugs": {
+    "url": "https://github.com/expediagroup/pino-rotating-file/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/expediagroup/pino-rotating-file"
+  },
   "license": "Apache-2.0",
+  "author": {
+    "name": "Expedia Group",
+    "email": "oss@expediagroup.com"
+  },
+  "contributors": [
+    "tlivingston",
+    "tuckbick",
+    "mcjfunk",
+    "holmok",
+    "skphi13",
+    "joonastanner"
+  ],
+  "main": "lib/index.js",
+  "bin": {
+    "rotate-logs": "./lib/index.js"
+  },
+  "scripts": {
+    "commit": "cz",
+    "lint": "standard",
+    "nyc": "nyc --reporter=text --reporter=text-summary --reporter=html npm run tape",
+    "postnyc": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "tape": "tape ./tests/**/*.test.js | tap-spec",
+    "test": "npm run lint && npm run nyc"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "dependencies": {
     "debug": "^4.1.1",
     "minimist": "^1.2.0",
@@ -60,8 +62,10 @@
     "through2": "^4.0.0"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
     "mock-require": "^3.0.3",
     "mock-stdin": "^1.0.0",
     "nyc": "^15.0.0",
@@ -70,5 +74,12 @@
     "std-mocks": "^1.0.1",
     "tap-spec": "^5.0.0",
     "tape": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

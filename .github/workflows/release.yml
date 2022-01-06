@@ -5,11 +5,11 @@ on:
       - master
 jobs:
   prepare: # Do not run workflow for chore commits https://bit.ly/39qUH60
+    name: Prepare
     runs-on: ubuntu-latest
     if: "! contains(github.event.head_commit.message, '[skip ci]')"
     steps:
       - run: echo "${{ github.event.head_commit.message }}"
-
   release:
     needs: prepare
     name: Release
@@ -17,14 +17,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          node-version-file: '.nvmrc'
       - name: Install dependencies
         run: npm install
+      - name: Run unit tests
+        run: npm test
+        env:
+          CI: true
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
