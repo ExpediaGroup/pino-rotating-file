@@ -88,7 +88,7 @@ module.exports = {
 
 ### Release Notes 
 
-Version 5 requires Node 14 
+Version 5 or higher requires Node 14 
 
 
 ## Further Reading
