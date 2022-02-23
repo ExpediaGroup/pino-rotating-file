@@ -85,6 +85,12 @@ module.exports = {
 }
 ```
 
+
+### Release Notes 
+
+Version 5 requires Node 14 
+
+
 ## Further Reading
 
 *   [License](LICENSE)
