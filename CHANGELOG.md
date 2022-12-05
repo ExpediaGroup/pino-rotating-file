@@ -1,6 +1,5 @@
 # [4.1.0](https://github.com/expediagroup/pino-rotating-file/compare/v4.0.0...v4.1.0) (2022-01-06)
 
-
 ### Features
 
 * **semantic-release:** modify the semantic release config ([#42](https://github.com/expediagroup/pino-rotating-file/issues/42)) ([1658957](https://github.com/expediagroup/pino-rotating-file/commit/1658957d21d4d03ac30c8ef996a9b930dfdcb3e0))
