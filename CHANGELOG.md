@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/expediagroup/pino-rotating-file/compare/v4.1.0...v4.2.0) (2022-12-06)
+
+
+### Features
+
+* empty commit to trigger release pipeline ([#47](https://github.com/expediagroup/pino-rotating-file/issues/47)) ([3c1b3af](https://github.com/expediagroup/pino-rotating-file/commit/3c1b3afee9d55dc8147713b11112bdef21d26e32))
+
 # [4.1.0](https://github.com/expediagroup/pino-rotating-file/compare/v4.0.0...v4.1.0) (2022-01-06)
 
 ### Features
