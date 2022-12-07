@@ -1,3 +1,10 @@
+# [4.3.0](https://github.com/expediagroup/pino-rotating-file/compare/v4.2.0...v4.3.0) (2022-12-07)
+
+
+### Features
+
+* Upgrade to node v16 ([#48](https://github.com/expediagroup/pino-rotating-file/issues/48)) ([95de84d](https://github.com/expediagroup/pino-rotating-file/commit/95de84d9c340d829f94ff8e6d9e1ebf1d115ac10))
+
 # [4.2.0](https://github.com/expediagroup/pino-rotating-file/compare/v4.1.0...v4.2.0) (2022-12-06)
 
 
