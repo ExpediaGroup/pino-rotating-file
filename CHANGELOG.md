@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/expediagroup/pino-rotating-file/compare/v4.3.0...v4.3.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* bump json5 from 1.0.1 to 1.0.2 ([#49](https://github.com/expediagroup/pino-rotating-file/issues/49)) ([90a6333](https://github.com/expediagroup/pino-rotating-file/commit/90a6333324185154bc10d569954f7988091584db))
+
 # [4.3.0](https://github.com/expediagroup/pino-rotating-file/compare/v4.2.0...v4.3.0) (2022-12-07)
 
 
