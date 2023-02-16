@@ -1,3 +1,10 @@
+## [4.3.2](https://github.com/expediagroup/pino-rotating-file/compare/v4.3.1...v4.3.2) (2023-02-16)
+
+
+### Bug Fixes
+
+* Altering the order of semantic release config file to have it correct ([#56](https://github.com/expediagroup/pino-rotating-file/issues/56)) ([d4baf4e](https://github.com/expediagroup/pino-rotating-file/commit/d4baf4e628b4c9aaffeedb73abaeaf378526f2da))
+
 ## [4.3.1](https://github.com/expediagroup/pino-rotating-file/compare/v4.3.0...v4.3.1) (2023-01-09)
 
 
