@@ -1,3 +1,10 @@
+# [4.4.0](https://github.com/expediagroup/pino-rotating-file/compare/v4.3.2...v4.4.0) (2023-02-27)
+
+
+### Features
+
+* Updating some dependencies ([#57](https://github.com/expediagroup/pino-rotating-file/issues/57)) ([82419a1](https://github.com/expediagroup/pino-rotating-file/commit/82419a1f1f4d981d8597ea316063cd4589d5947c))
+
 ## [4.3.2](https://github.com/expediagroup/pino-rotating-file/compare/v4.3.1...v4.3.2) (2023-02-16)
 
 
