@@ -1,6 +1,0 @@
-{
-    "extends": [
-        "config:base",
-        "github>ExpediaGroup/renovate-config-catalyst:semanticCommits"
-    ]
-}
