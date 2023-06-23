@@ -13,3 +13,7 @@ updates:
     reviewers:
       - "@ExpediaGroup/catalyst-committers"
     open-pull-requests-limit: 10
+    ignore:
+      # Ignore Semantic Release major updates
+      - dependency-name: "semantic-release"
+        update-types: ["version-update:semver-major"]
