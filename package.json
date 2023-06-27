@@ -69,6 +69,7 @@
     "mock-require": "^3.0.3",
     "mock-stdin": "^1.0.0",
     "nyc": "^15.0.0",
+    "semantic-release": "^19.0.5",
     "sinon": "^15.0.1",
     "standard": "^17.0.0",
     "std-mocks": "^1.0.1",
